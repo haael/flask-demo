@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="utf-8"/>
+  <title>Detect OS</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <script type="text/javascript" src="brython.js"/>
+  <script type="text/javascript" src="brython_stdlib.js"/>
+  <script type="text/python">
+    import populate
+    populate.bind_show_os_delete_button()
+    populate.bind_load_visible_devices_on_scroll()
+    populate.load_opsys_list()
+    populate.load_device_list()
+  </script>
+  <datalist id="opsys_name"/>
+  <datalist id="opsys_platform"/>
+  <datalist id="opsys_kernel"/>
+  <datalist id="opsys_flavor"/>
+ </head>
+ <body onload="brython()">
+  <div id="overlay">
+   <div id="pusher">&nbsp;</div>
+   <div id="progress">&nbsp;</div>
+  </div>
+  <div class="table_parent">
+   <h1>Operating Systems</h1>
+   <table id="operatingsystems">
+    <tr class="header">
+     <td class="os_name">
+      OS name
+      <label class="os_delete">
+       <input id="show_os_delete" type="checkbox"/>
+       <span>x</span>
+      </label>
+     </td>
+     <td class="kernel_family">kernel family</td>
+     <td class="platform">platform</td>
+     <td class="flavor">flavor</td>
+     <td class="version_number">version</td>
+     <td class="code_name">code name</td>
+     <td class="release_date">release date</td>
+     <td class="osweight">weight</td>
+    </tr>
+   </table>
+  </div>	
+  <div class="table_parent">
+   <h1>Devices</h1>
+   <table id="devices">
+    <tr class="header devices_first">
+     <td class="mac_address" rowspan="2">MAC address</td>
+     <td class="mac_vendor">MAC vendor</td>
+     <td class="dhcp_fingerprint">DHCP fingerprint</td>
+     <td class="fingerbank_guess">Fingerbank guess</td>
+     <td class="hostname">hostname</td>
+     <td class="deduced_os">deduced OS</td>
+     <td class="operating_system" rowspan="2">operating system</td>
+     <td class="devweight" rowspan="2">weight</td>
+    </tr>
+    <tr class="header devices_second">
+     <td class="mac_address"> </td>
+     <td class="bonjour_name">Bonjour name</td>
+     <td class="bonjour_model">Bonjour model</td>
+     <td class="bonjour_services">Bonjour services</td>
+     <td class="bonjour_txt" colspan="2">Bonjour txt</td>
+    </tr>
+   </table>
+  </div>
+ </body>
+</html>
